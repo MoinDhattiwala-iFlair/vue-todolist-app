@@ -45,9 +45,12 @@ export default {
   methods: {
     updateCheck() {
       axios
-        .put("http://127.0.0.1:8000/api/item/" + this.item.id, {
-          item: this.item,
-        })
+        .put(
+          "https://jopay-laravel-todolist-app.herokuapp.com/api/item/" + this.item.id,
+          {
+            item: this.item,
+          }
+        )
         .then((result) => {
           if (result.status == 200) {
             this.$emit("refreshItems");
@@ -60,7 +63,9 @@ export default {
     },
     removeItem() {
       axios
-        .delete("http://127.0.0.1:8000/api/item/" + this.item.id)
+        .delete(
+          "https://jopay-laravel-todolist-app.herokuapp.com/api/item/" + this.item.id
+        )
         .then((result) => {
           if (result.status == 200) {
             this.$emit("refreshItems");
@@ -73,7 +78,10 @@ export default {
     },
     restoreItem() {
       axios
-        .get("http://127.0.0.1:8000/api/item/restore/" + this.item.id)
+        .get(
+          "https://jopay-laravel-todolist-app.herokuapp.com/api/item/restore/" +
+            this.item.id
+        )
         .then((result) => {
           if (result.status == 200) {
             this.$emit("refreshItems");

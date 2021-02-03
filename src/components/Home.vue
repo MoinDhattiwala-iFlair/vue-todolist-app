@@ -97,7 +97,7 @@ export default {
     getList() {
       this.isLoading = true;
       axios
-        .get("http://127.0.0.1:8000/api/item")
+        .get("https://jopay-laravel-todolist-app.herokuapp.com/api/item")
         .then((result) => {
           if (result.status == 200) {
             this.items = result.data;

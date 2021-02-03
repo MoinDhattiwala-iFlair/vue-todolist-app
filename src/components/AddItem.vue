@@ -45,13 +45,16 @@ export default {
       if (this.$refs.form.validate()) {
         let api = null;
         if (this.item.id === 0) {
-          api = axios.post("http://127.0.0.1:8000/api/item", {
+          api = axios.post("https://jopay-laravel-todolist-app.herokuapp.com/api/item", {
             item: this.item,
           });
         } else {
-          api = axios.put("http://127.0.0.1:8000/api/item/" + this.item.id, {
-            item: this.item,
-          });
+          api = axios.put(
+            "https://jopay-laravel-todolist-app.herokuapp.com/api/item/" + this.item.id,
+            {
+              item: this.item,
+            }
+          );
         }
         api
           .then((result) => {
